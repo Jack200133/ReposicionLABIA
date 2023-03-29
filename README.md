@@ -150,6 +150,9 @@ from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler, PolynomialFeatures
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV
+import warnings
+
+warnings.filterwarnings("ignore")
 
 pipeline = Pipeline([
     ('imputer', SimpleImputer(strategy='mean')),
@@ -191,163 +194,8 @@ print(f"Accuracy: {accuracy}")
 
 ```
 
-    c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\model_selection\_validation.py:378: FitFailedWarning: 
-    15 fits failed out of a total of 30.
-    The score on these train-test partitions for these parameters will be set to nan.
-    If these failures are not expected, you can try to debug them by setting error_score='raise'.
-    
-    Below are more details about the failures:
-    --------------------------------------------------------------------------------
-    4 fits failed with the following error:
-    Traceback (most recent call last):
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\model_selection\_validation.py", line 686, in _fit_and_score
-        estimator.fit(X_train, y_train, **fit_params)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\pipeline.py", line 401, in fit
-        Xt = self._fit(X, y, **fit_params_steps)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\pipeline.py", line 359, in _fit
-        X, fitted_transformer = fit_transform_one_cached(
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\joblib\memory.py", line 349, in __call__
-        return self.func(*args, **kwargs)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\pipeline.py", line 893, in _fit_transform_one
-        res = transformer.fit_transform(X, y, **fit_params)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\_set_output.py", line 142, in wrapped
-        data_to_wrap = f(self, X, *args, **kwargs)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\base.py", line 862, in fit_transform
-        return self.fit(X, y, **fit_params).transform(X)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\_set_output.py", line 142, in wrapped
-        data_to_wrap = f(self, X, *args, **kwargs)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\preprocessing\_polynomial.py", line 393, in transform
-        XP = np.empty(
-    numpy.core._exceptions._ArrayMemoryError: Unable to allocate 38.7 GiB for an array with shape (339, 15329614) and data type float64
-    
-    --------------------------------------------------------------------------------
-    1 fits failed with the following error:
-    Traceback (most recent call last):
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\model_selection\_validation.py", line 686, in _fit_and_score
-        estimator.fit(X_train, y_train, **fit_params)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\pipeline.py", line 401, in fit
-        Xt = self._fit(X, y, **fit_params_steps)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\pipeline.py", line 359, in _fit
-        X, fitted_transformer = fit_transform_one_cached(
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\joblib\memory.py", line 349, in __call__
-        return self.func(*args, **kwargs)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\pipeline.py", line 893, in _fit_transform_one
-        res = transformer.fit_transform(X, y, **fit_params)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\_set_output.py", line 142, in wrapped
-        data_to_wrap = f(self, X, *args, **kwargs)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\base.py", line 862, in fit_transform
-        return self.fit(X, y, **fit_params).transform(X)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\_set_output.py", line 142, in wrapped
-        data_to_wrap = f(self, X, *args, **kwargs)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\preprocessing\_polynomial.py", line 393, in transform
-        XP = np.empty(
-    numpy.core._exceptions._ArrayMemoryError: Unable to allocate 38.8 GiB for an array with shape (340, 15329614) and data type float64
-    
-    --------------------------------------------------------------------------------
-    4 fits failed with the following error:
-    Traceback (most recent call last):
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\model_selection\_validation.py", line 686, in _fit_and_score
-        estimator.fit(X_train, y_train, **fit_params)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\pipeline.py", line 401, in fit
-        Xt = self._fit(X, y, **fit_params_steps)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\pipeline.py", line 359, in _fit
-        X, fitted_transformer = fit_transform_one_cached(
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\joblib\memory.py", line 349, in __call__
-        return self.func(*args, **kwargs)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\pipeline.py", line 893, in _fit_transform_one
-        res = transformer.fit_transform(X, y, **fit_params)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\_set_output.py", line 142, in wrapped
-        data_to_wrap = f(self, X, *args, **kwargs)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\base.py", line 862, in fit_transform
-        return self.fit(X, y, **fit_params).transform(X)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\_set_output.py", line 142, in wrapped
-        data_to_wrap = f(self, X, *args, **kwargs)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\preprocessing\_polynomial.py", line 393, in transform
-        XP = np.empty(
-    numpy.core._exceptions._ArrayMemoryError: Unable to allocate 1.07 TiB for an array with shape (339, 432295142) and data type float64
-    
-    --------------------------------------------------------------------------------
-    1 fits failed with the following error:
-    Traceback (most recent call last):
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\model_selection\_validation.py", line 686, in _fit_and_score
-        estimator.fit(X_train, y_train, **fit_params)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\pipeline.py", line 401, in fit
-        Xt = self._fit(X, y, **fit_params_steps)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\pipeline.py", line 359, in _fit
-        X, fitted_transformer = fit_transform_one_cached(
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\joblib\memory.py", line 349, in __call__
-        return self.func(*args, **kwargs)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\pipeline.py", line 893, in _fit_transform_one
-        res = transformer.fit_transform(X, y, **fit_params)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\_set_output.py", line 142, in wrapped
-        data_to_wrap = f(self, X, *args, **kwargs)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\base.py", line 862, in fit_transform
-        return self.fit(X, y, **fit_params).transform(X)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\_set_output.py", line 142, in wrapped
-        data_to_wrap = f(self, X, *args, **kwargs)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\preprocessing\_polynomial.py", line 393, in transform
-        XP = np.empty(
-    numpy.core._exceptions._ArrayMemoryError: Unable to allocate 1.07 TiB for an array with shape (340, 432295142) and data type float64
-    
-    --------------------------------------------------------------------------------
-    4 fits failed with the following error:
-    Traceback (most recent call last):
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\model_selection\_validation.py", line 686, in _fit_and_score
-        estimator.fit(X_train, y_train, **fit_params)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\pipeline.py", line 401, in fit
-        Xt = self._fit(X, y, **fit_params_steps)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\pipeline.py", line 359, in _fit
-        X, fitted_transformer = fit_transform_one_cached(
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\joblib\memory.py", line 349, in __call__
-        return self.func(*args, **kwargs)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\pipeline.py", line 893, in _fit_transform_one
-        res = transformer.fit_transform(X, y, **fit_params)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\_set_output.py", line 142, in wrapped
-        data_to_wrap = f(self, X, *args, **kwargs)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\base.py", line 862, in fit_transform
-        return self.fit(X, y, **fit_params).transform(X)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\_set_output.py", line 142, in wrapped
-        data_to_wrap = f(self, X, *args, **kwargs)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\preprocessing\_polynomial.py", line 393, in transform
-        XP = np.empty(
-    numpy.core._exceptions._ArrayMemoryError: Unable to allocate 25.2 TiB for an array with shape (339, 10230985050) and data type float64
-    
-    --------------------------------------------------------------------------------
-    1 fits failed with the following error:
-    Traceback (most recent call last):
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\model_selection\_validation.py", line 686, in _fit_and_score
-        estimator.fit(X_train, y_train, **fit_params)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\pipeline.py", line 401, in fit
-        Xt = self._fit(X, y, **fit_params_steps)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\pipeline.py", line 359, in _fit
-        X, fitted_transformer = fit_transform_one_cached(
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\joblib\memory.py", line 349, in __call__
-        return self.func(*args, **kwargs)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\pipeline.py", line 893, in _fit_transform_one
-        res = transformer.fit_transform(X, y, **fit_params)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\_set_output.py", line 142, in wrapped
-        data_to_wrap = f(self, X, *args, **kwargs)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\base.py", line 862, in fit_transform
-        return self.fit(X, y, **fit_params).transform(X)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\_set_output.py", line 142, in wrapped
-        data_to_wrap = f(self, X, *args, **kwargs)
-      File "c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\preprocessing\_polynomial.py", line 393, in transform
-        XP = np.empty(
-    numpy.core._exceptions._ArrayMemoryError: Unable to allocate 25.3 TiB for an array with shape (340, 10230985050) and data type float64
-    
-      warnings.warn(some_fits_failed_message, FitFailedWarning)
-    c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\model_selection\_search.py:952: UserWarning: One or more of the test scores are non-finite: [0.81596639 0.8419888  0.8089916         nan        nan        nan]
-      warnings.warn(
-    c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\linear_model\_sag.py:350: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
-      warnings.warn(
-    
-
     El mejor grado polinomial es: 2
-    Accuracy: 0.8301886792452831
-    
-
-    c:\Users\angel\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\linear_model\_sag.py:350: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
-      warnings.warn(
+    Accuracy: 0.8278301886792453
     
 
 ## Analisis 
